@@ -1,0 +1,21 @@
+{%extends "layout.html"%}
+{%block content%}
+  <title>Upload new File</title>
+  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>
+  <div class="">
+    <h1 class="my-4">{{ city }}</h1>
+    <div id="fig01"></div>
+    <div id="fig02"></div>
+    <div id="fig03"></div>
+    <h1>Direct to HTML plot</h1>
+    <div class="">{{ htmlfig }}</div>
+  <script type="text/javascript">
+  var json01 = JSON.parse({{ input1|tojson|safe }});
+  var json02 = JSON.parse({{ input2|tojson|safe }});
+  var json03 = JSON.parse({{ input3|tojson|safe }});
+  mpld3.draw_figure("fig01", json01);
+  mpld3.draw_figure("fig02", json02);
+  mpld3.draw_figure("fig03", json03);
+  </script>
+{%endblock%}
